@@ -1,0 +1,10 @@
+ADMIN CREDENTIALS
+username: michael
+password: Afregman112358#
+
+get microsoft visual c++ buildtools for building GDAL
+
+download GDAL-3.4.3-cp310-cp310-win_amd64.whl
+and install with pip 
+pip install GDAL-3.4.3-cp310-cp310-win_amd64.whl -----first do python --version to find the appropraite python
+version which will be after cp as cp310-----for python 3.10 as in the above
