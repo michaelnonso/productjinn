@@ -1,3 +1,4 @@
+
 """
 Django settings for product_jinn project.
 
@@ -12,10 +13,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-os.environ['GDAL_LIBRARY_PATH'] = 'C:\\Users\\michael.ejeagba\\AppData\\Local\\Programs\\Python\\Python310\\\Lib\\site-packages\\osgeo\\gdal304'
-os.environ['GEOS_LIBRARY_PATH'] = 'C:\\Users\\michael.ejeagba\\AppData\\Local\\Programs\\Python\\Python310\\\Lib\\site-packages\\osgeo\\geos_c.dll'
+os.environ['GDAL_LIBRARY_PATH'] = 'C:\\Users\\michael.ejeagba\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\osgeo\\gdal304'
+os.environ['GEOS_LIBRARY_PATH'] = 'C:\\Users\\michael.ejeagba\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\osgeo\\geos_c.dll'
 # os.environ['SPATIALITE_LIBRARY_PATH'] = 'C:\\Users\\michael.ejeagba\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\mod_spatialite-5.0.1-win-x86\\mod_spatialite.dll'
+os.environ['PROJ_LIB'] = 'C:\\Users\\michael.ejeagba\\AppData\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\osgeo\\data\\proj'
 
+#C:\Users\michael.ejeagba\AppData\Local\Programs\Python\Python310\Lib\site-packages\osgeo\data\\proj
 
 GEOS_LIBRARY_PATH =os.environ['GEOS_LIBRARY_PATH']
 GDAL_LIBRARY_PATH = os.environ['GDAL_LIBRARY_PATH']
@@ -113,10 +116,22 @@ WSGI_APPLICATION = 'product_jinn.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'productjinndb', 
+#         'USER': 'entryway', 
+#         'PASSWORD': 'entryway',
+#         'HOST': '127.0.0.1', 
+#         'PORT': '5432',
+#     }
+# }
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'productjinndb', 
         'USER': 'entryway', 
         'PASSWORD': 'entryway',
@@ -125,6 +140,7 @@ DATABASES = {
     }
 }
 
+POSTGIS_VERSION = (2, 0, 3)
 
 
 
