@@ -8,3 +8,13 @@ download GDAL-3.4.3-cp310-cp310-win_amd64.whl
 and install with pip 
 pip install GDAL-3.4.3-cp310-cp310-win_amd64.whl -----first do python --version to find the appropraite python
 version which will be after cp as cp310-----for python 3.10 as in the above
+
+AFTER INSTALLING POSTGRESQL
+add C:\Program Files\PostgreSQL\15\bin to system path variables
+recovery password:normal password
+CREATE DATABASE productjinnDB;
+CREATE USER entryway WITH PASSWORD 'entryway';
+GRANT ALL PRIVILEGES ON DATABASE productjinnDB TO entryway;
+ALTER ROLE entryway SET client_encoding TO 'utf8';
+ALTER ROLE entryway SET default_transaction_isolation TO 'read committed';
+ALTER ROLE entryway SET timezone TO 'UTC';

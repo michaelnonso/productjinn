@@ -98,12 +98,34 @@ WSGI_APPLICATION = 'product_jinn.wsgi.application'
 # }
 
 # #USING SPATIALITE
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# #USING POSGRESQL
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'productjinndb', 
+        'USER': 'entryway', 
+        'PASSWORD': 'entryway',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation
