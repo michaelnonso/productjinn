@@ -15,7 +15,7 @@ from django.contrib.auth.models import User
 class Stores(models.Model):
     store_name = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now_add=True)
-    #     coordinate= xyz   - to be implemented using geodjango
+    coordinates = models.PointField()
     
     def __str__(self):
         return self.store_name

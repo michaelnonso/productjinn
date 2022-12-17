@@ -140,7 +140,7 @@ DATABASES = {
     }
 }
 
-POSTGIS_VERSION = (2, 0, 3)
+POSTGIS_VERSION = (3, 3, 2)
 
 
 

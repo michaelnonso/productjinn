@@ -11,6 +11,7 @@ version which will be after cp as cp310-----for python 3.10 as in the above
 
 AFTER INSTALLING POSTGRESQL
 add C:\Program Files\PostgreSQL\15\bin to system path variables
+posgis extension must be installed to system running postgresql using application stark builder
 recovery password:normal password
 CREATE DATABASE productjinnDB;
 CREATE USER entryway WITH PASSWORD 'entryway';
@@ -18,3 +19,6 @@ GRANT ALL PRIVILEGES ON DATABASE productjinnDB TO entryway;
 ALTER ROLE entryway SET client_encoding TO 'utf8';
 ALTER ROLE entryway SET default_transaction_isolation TO 'read committed';
 ALTER ROLE entryway SET timezone TO 'UTC';
+MAKE entryway THE OWNER OF projectjinndb database -----i used pgAdmin4 
+(ALTER ROLE <user_name> SUPERUSER;)
+CREATE EXTENSION postgis;
