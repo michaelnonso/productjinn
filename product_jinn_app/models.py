@@ -15,7 +15,7 @@ from django.contrib.auth.models import User
 class Stores(models.Model):
     store_name = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now_add=True)
-    coordinates = models.PointField()
+    coordinates = models.PointField(null=True, blank=True)
     
     def __str__(self):
         return self.store_name
