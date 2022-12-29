@@ -8,7 +8,7 @@ class IsAdminOrReadOnly(permissions.IsAdminUser):
         if request.method in permissions.SAFE_METHODS: #check if doing GET which is safe
             return True
         else:   #if they are doin PUT,POST or DESTROY
-            return bool(request.user and request.user.is_staff)
+            return bool(request.user and request.user.is_staff) #if user is loggedin and if he is admin
     
     
 class IsUserReviewerOrAdminOrReadOnly(permissions.BasePermission):
@@ -16,6 +16,6 @@ class IsUserReviewerOrAdminOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS: #check if doing GET which is safe
             return True
         else:   #if they are doin PUT,POST or DESTROY
-            return obj.user_reviewer  == request.user or request.user.is_staff
+            return obj.owner == request.user or request.user.is_staff
        
     

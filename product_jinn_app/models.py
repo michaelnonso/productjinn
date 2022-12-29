@@ -16,6 +16,7 @@ class Stores(models.Model):
     store_name = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now_add=True)
     coordinates = models.PointField(null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.store_name
@@ -24,6 +25,7 @@ class Stores(models.Model):
 
 class Categories(models.Model):
     title = models.CharField(max_length=50)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.title
     
@@ -33,12 +35,14 @@ class Products(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     price = models.FloatField(default=0)
     name = models.CharField(max_length=50)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
     
 class Contacts(models.Model):
     store =  models.ForeignKey(Stores, on_delete=models.DO_NOTHING,related_name="contact")
     phone_number = PhoneNumberField(null=False, blank=False, unique=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.store.store_name +" " + str(self.phone_number)
@@ -53,6 +57,7 @@ def upload_to(instance, filename):
 class Prod_images(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE,related_name="product_image")
     image_url = models.ImageField(upload_to=upload_to,null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
 
