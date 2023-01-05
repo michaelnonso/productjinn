@@ -35,4 +35,5 @@ endpoints = {'endpoint 1':'',
              'endpoint 8':'api/categorylist/',
              'endpoint 9':'api/categorylist/<int:pk>/',
              'endpoint 10':'api/product-images/',
-             'endpoint 11':'api/product-images/<int:pk>/'}
+             'endpoint 11':'api/product-images/<int:pk>/',
+             'endpoint 12':'account/login/'}

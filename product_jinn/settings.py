@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters', # only works with generic API views
+    'user_app',
 ]
 
 MIDDLEWARE = [
