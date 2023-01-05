@@ -197,3 +197,30 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 MEDIA_URL = '/media/'
 
 print(MEDIA_ROOT)
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    # 'DEFAULT_THROTTLE_CLASSES': [
+    #     'rest_framework.throttling.AnonRateThrottle',    #commented out because i want to use object/scope based throttling
+    #     'rest_framework.throttling.UserRateThrottle'
+    # ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '1/day',
+        'user': '100/day',
+        #configuring scope for my custom throttling classes
+        "review-create":"1/day",
+        "review-list":"10/day",
+        'review-detail': '5/day'
+    },
+    #code disables browsable API
+    'DEFAULT_RENDERER_CLASSES':(
+            'rest_framework.renderers.JSONRenderer',
+        ),
+    # ,
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 5
+}
