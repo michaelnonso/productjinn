@@ -11,11 +11,14 @@ class IsAdminOrReadOnly(permissions.IsAdminUser):
             return bool(request.user and request.user.is_staff) #if user is loggedin and if he is admin
     
     
-class IsUserReviewerOrAdminOrReadOnly(permissions.BasePermission):
+class IsOwnerOrAdminOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
-        if request.method in permissions.SAFE_METHODS: #check if doing GET which is safe
-            return True
-        else:   #if they are doin PUT,POST or DESTROY
-            return obj.owner == request.user or request.user.is_staff
-       
+        # if request.method in permissions.SAFE_METHODS: #check if doing GET which is safe
+        #     return True
+        # else:   #if they are doin PUT,POST or DESTROY
+        #     return obj.owner == request.user or request.user.is_staff
+       if obj.owner == request.user or request.user.is_staff:
+           return True
+       else:
+           return False
     
