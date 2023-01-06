@@ -16,19 +16,19 @@ from product_jinn_app.api.permissions import IsOwnerOrAdminOrReadOnly
 from rest_framework.response import Response
 from django.urls import get_resolver, get_urlconf
 
-
+from rest_framework.permissions import IsAuthenticated
 
 
 #GenericAPIView watchlist for test search test purposes
 class ProductsListG(generics.ListAPIView):         #handles get and post
     queryset = Products.objects.all() #queryset object
     serializer_class = ProductsSerializer
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 class ProductsDetailG(generics.RetrieveUpdateDestroyAPIView):   #--handles get, put, delete specific products
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     # #throttle_classes =[UserRateThrottle, AnonRateThrottle]
     # throttle_classes =[ScopedRateThrottle]
     # throttle_scope = 'review-detail'
@@ -36,45 +36,45 @@ class ProductsDetailG(generics.RetrieveUpdateDestroyAPIView):   #--handles get, 
 class StoresListG(generics.ListAPIView):         #handles get and post
     queryset = Stores.objects.all() #queryset object
     serializer_class = StoresSerializer
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 class StoresDetailG(generics.RetrieveUpdateDestroyAPIView):   #--handles get, put, delete specific products
     queryset = Stores.objects.all()
     serializer_class = StoresSerializer
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 class CategoriesListG(generics.ListAPIView):         #handles get and post
     queryset = Categories.objects.all() #queryset object
     serializer_class = CategoriesSerializer
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
     
 class CategoriesDetailG(generics.RetrieveUpdateDestroyAPIView):   #--handles get, put, delete specific products
     queryset = Categories.objects.all()
     serializer_class = Categories
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 class ContactsListG(generics.ListAPIView):         #handles get and post
     queryset = Contacts.objects.all() #queryset object
     serializer_class = ContactsSerializer
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 class ContactsDetailG(generics.RetrieveUpdateDestroyAPIView):   #--handles get, put, delete specific products
     queryset = Contacts.objects.all()
     serializer_class = ContactsSerializer
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 class Prod_imagesListG(generics.ListAPIView):         #handles get and post
     queryset = Prod_images.objects.all() #queryset object
     serializer_class = Prod_imagesSerializer
     parser_classes = (MultiPartParser, FormParser)
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 class Prod_imagesDetailG(generics.RetrieveUpdateDestroyAPIView):   #--handles get, put, delete specific products
     queryset = Prod_images.objects.all()
     serializer_class = Prod_imagesSerializer
     parser_classes = (MultiPartParser, FormParser)
-    permission_classes = [IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly,IsAuthenticated]
     
 
 # method creates a summary of all endpoints and returns it as a json response
